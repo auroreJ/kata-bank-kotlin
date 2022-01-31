@@ -1,16 +1,20 @@
 import java.time.LocalDate
 
-class Account(private val statement: Statement, var balance: Int = 0) {
+class Account(private val statement: Statement, private val statementPrinter: StatementPrinter, var balance: Int = 0) {
 
     fun deposit(amount: Int, date: LocalDate) {
         balance += amount
-        val transaction = Transaction(TransactionType.DEPOSIT, amount, date)
+        val transaction = Transaction(TransactionType.DEPOSIT, amount, date, balance)
         statement.registerTransaction(transaction)
     }
 
-    fun withdrawal(amount: Int, date: LocalDate) {
+    fun withdraw(amount: Int, date: LocalDate) {
         balance -= amount
-        val transaction = Transaction(TransactionType.WITHDRAWAL, amount, date)
+        val transaction = Transaction(TransactionType.WITHDRAWAL, amount, date, balance)
         statement.registerTransaction(transaction)
+    }
+
+    fun printStatement() {
+        statementPrinter.print(statement.getTansactions())
     }
 }
