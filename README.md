@@ -1,4 +1,4 @@
-###Kata Bank in Kotlin
+### Kata Bank in Kotlin
 
 This kata has been done following indications below:
 
