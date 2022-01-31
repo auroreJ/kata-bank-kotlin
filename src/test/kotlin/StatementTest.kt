@@ -6,7 +6,7 @@ class StatementTest {
     private val statement = Statement()
 
     @Test
-    fun `should register a deposit transaction`() {
+    fun `should register a transaction`() {
         val amount = 50
         val transactionDate = LocalDate.of(2022, 1, 12)
         val transaction = Transaction(TransactionType.DEPOSIT, amount, transactionDate)
