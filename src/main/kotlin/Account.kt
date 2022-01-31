@@ -10,6 +10,7 @@ class Account(private val statement: Statement, private val statementPrinter: St
 
     fun withdraw(amount: Int, date: LocalDate) {
         balance -= amount
+        if (balance < 0) throw Exception("Withdrawal not allowed")
         val transaction = Transaction(TransactionType.WITHDRAWAL, amount, date, balance)
         statement.registerTransaction(transaction)
     }

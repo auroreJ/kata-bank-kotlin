@@ -1,7 +1,7 @@
 import com.google.common.collect.ImmutableList
 import java.time.format.DateTimeFormatter
 
-class StatementConsolePrinter(): StatementPrinter {
+class StatementConsolePrinter: StatementPrinter {
     private val header = "Date | Debit | Credit | Balance"
 
     override fun print(transactions: ImmutableList<Transaction>) {

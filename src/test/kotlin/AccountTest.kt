@@ -47,6 +47,12 @@ class AccountTest {
     }
 
     @Test
+    fun `should fail when balance become negative after the withdrawal`() {
+        assertThatThrownBy { account.withdraw(60, LocalDate.of(2022, 1, 12)) }
+            .hasMessage("Withdrawal not allowed")
+    }
+
+    @Test
     fun `print a statement`() {
         val transactions = listOf(
         Transaction(TransactionType.DEPOSIT, 40, LocalDate.of(2022, 1, 12), 40),
